@@ -1,0 +1,55 @@
+version: "3"
+services:
+  revenue:
+    build: ./revenue
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PORT=5000
+      - DB_HOST=takeoff.lbc
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_NAME=crms_stage_2025_06
+      - DB_PASS=bitnami
+      - OPENBLAS_NUM_THREADS=1
+      - OMP_NUM_THREADS=1
+      - MKL_NUM_THREADS=1
+      - NUMEXPR_NUM_THREADS=1
+      - TF_NUM_INTRAOP_THREADS=1
+      - TF_NUM_INTEROP_THREADS=1
+    ulimits:
+      nproc: 65535
+
+  demand:
+    build: ./demand
+    environment:
+      - PYTHONUNBUFFERED=1
+      - OPENBLAS_NUM_THREADS=1
+      - OMP_NUM_THREADS=1
+      - MKL_NUM_THREADS=1
+    ulimits:
+      nproc: 65535
+  # maintenance:
+  #   build: ./maintenance
+  #   command: ["python", "pred.py", "--mode", "server"]
+  #   environment:
+  #     - PYTHONUNBUFFERED=1
+  #     - OPENBLAS_NUM_THREADS=1
+  #     - OMP_NUM_THREADS=1
+  #     - MKL_NUM_THREADS=1
+  #     - DB_HOST=takeoff.lbc
+  #     - DB_PORT=5432
+  #     - DB_USER=postgres
+  #     - DB_NAME=crms_stage_2025_06
+  #     - DB_PASS=bitnami
+  #   ulimits:
+  #     nproc: 65535
+
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "81:80"
+    depends_on:
+      - revenue
+      - demand
+      # - maintenance
