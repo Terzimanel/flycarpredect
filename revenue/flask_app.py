@@ -26,7 +26,7 @@ app = Flask(__name__)
 
 # Database configuration from environment variables
 DB_USER = os.getenv("DB_USER", "postgres")
-DB_PASS = os.getenv("DB_PASS", "manel")
+DB_PASS = os.getenv("DB_PASS", "bitnami")
 DB_HOST = os.getenv("DB_HOST", "takeoff.lbc")
 DB_PORT = os.getenv("DB_PORT", "5432")
 DB_NAME = os.getenv("DB_NAME", "crms_stage_2025_06")

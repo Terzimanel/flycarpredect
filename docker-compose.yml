@@ -9,7 +9,7 @@ services:
       - DB_PORT=5432
       - DB_USER=postgres
       - DB_NAME=crms_stage_2025_06
-      - DB_PASS=manel
+      - DB_PASS=bitnami
       - OPENBLAS_NUM_THREADS=1
       - OMP_NUM_THREADS=1
       - MKL_NUM_THREADS=1
