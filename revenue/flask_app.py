@@ -27,9 +27,9 @@ app = Flask(__name__)
 # Database configuration from environment variables
 DB_USER = os.getenv("DB_USER", "postgres")
 DB_PASS = os.getenv("DB_PASS", "manel")
-DB_HOST = os.getenv("DB_HOST", "192.168.1.17")
+DB_HOST = os.getenv("DB_HOST", "takeoff.lbc")
 DB_PORT = os.getenv("DB_PORT", "5432")
-DB_NAME = os.getenv("DB_NAME", "Flycar_db3")
+DB_NAME = os.getenv("DB_NAME", "crms_stage_2025_06")
 
 DB_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 

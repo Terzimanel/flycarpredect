@@ -26,9 +26,9 @@ logging.basicConfig(level=logging.DEBUG)
 
 def create_holidays_df_from_db_psycopg2():
     try:
-        db_host = os.getenv("DB_HOST", "192.168.1.17")
+        db_host = os.getenv("DB_HOST", "takeoff.lbc")
         db_port = os.getenv("DB_PORT", "5432")
-        db_name = os.getenv("DB_NAME", "Flycar_db3")
+        db_name = os.getenv("DB_NAME", "crms_stage_2025_06")
         db_user = os.getenv("DB_USER", "postgres")
         db_pass = os.getenv("DB_PASS", "manel")
 
